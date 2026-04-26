@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 44" fill="none">
+  <rect width="44" height="44" rx="12" fill="url(#bg)"/>
+  <path d="M10 33L22 9H28L16 33H10Z" fill="url(#fg)"/>
+  <path d="M20 33L32 9H38L26 33H20Z" fill="#A5F3FC"/>
+  <text x="54" y="29" fill="#E2E8F0" font-family="Sora, sans-serif" font-size="20" font-weight="700">ArloTechX</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#020617"/>
+      <stop offset="1" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <linearGradient id="fg" x1="10" y1="9" x2="38" y2="33" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+</svg>

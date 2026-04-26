@@ -1,0 +1,330 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Space Grotesk', sans-serif;
+  color: #0f172a;
+  background:
+    radial-gradient(900px 540px at 7% -12%, rgba(56, 189, 248, 0.2), transparent 62%),
+    radial-gradient(860px 520px at 96% 4%, rgba(59, 130, 246, 0.22), transparent 58%),
+    linear-gradient(180deg, #f8fbff 0%, #f3f7ff 50%, #f8fbff 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.18);
+  color: #0b1220;
+}
+
+@layer components {
+  .app-shell {
+    @apply min-h-screen text-slate-800;
+  }
+
+  .premium-panel {
+    @apply rounded-2xl border border-blue-100/80 bg-white/90 shadow-[0_10px_30px_rgba(37,99,235,0.08),0_1px_0_rgba(255,255,255,0.92)] backdrop-blur-xl;
+  }
+
+  .section-title {
+    @apply font-display text-2xl font-semibold text-slate-800 md:text-3xl;
+  }
+
+  .section-kicker {
+    @apply inline-flex rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-700;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-blue-300/50 bg-[linear-gradient(135deg,#1d4ed8,#2563eb_52%,#0ea5e9)] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(37,99,235,0.3)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_34px_rgba(37,99,235,0.35)];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-semibold text-blue-700 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:bg-blue-50;
+  }
+
+  .input-shell {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-blue-300 focus:ring-4 focus:ring-blue-100;
+  }
+
+  .app-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
+  .doc-preview-shell {
+    @apply mx-auto w-full max-w-[1020px] space-y-4;
+  }
+
+  .doc-toolbar {
+    @apply rounded-2xl border border-blue-100 bg-white/95 p-4 shadow-[0_12px_26px_rgba(15,23,42,0.08)] backdrop-blur-sm sm:p-5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .doc-warning {
+    @apply rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-amber-800;
+  }
+
+  .doc-canvas {
+    @apply rounded-2xl bg-transparent p-0 sm:p-2;
+  }
+
+  .document-sheet {
+    @apply mx-auto w-full max-w-[210mm] border border-slate-200 bg-white p-8 text-slate-800 shadow-[0_20px_34px_rgba(15,23,42,0.08)];
+    min-height: 297mm;
+  }
+
+  .doc-header {
+    @apply mb-6 flex flex-wrap items-start justify-between gap-8 border-b border-slate-200 pb-4;
+  }
+
+  .doc-company {
+    @apply flex min-w-0 flex-1 items-start gap-4;
+  }
+
+  .doc-logo {
+    width: 68px;
+    height: 68px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .doc-company-text {
+    @apply min-w-0;
+  }
+
+  .doc-company-text h1 {
+    @apply m-0 font-display text-[42px] font-bold leading-[1.05] text-slate-900;
+  }
+
+  .doc-company-text p {
+    @apply mt-1.5 text-[15px] text-slate-600;
+  }
+
+  .doc-muted {
+    @apply text-sm text-slate-600;
+  }
+
+  .doc-meta-box {
+    @apply min-w-[280px] rounded-[18px] border border-blue-100 bg-blue-50 px-6 py-[18px] text-sm text-slate-700;
+  }
+
+  .doc-meta-title {
+    @apply mb-3 text-[14px] font-bold uppercase tracking-[0.18em] text-blue-600;
+  }
+
+  .doc-grid-2 {
+    @apply mb-4 grid gap-3 sm:grid-cols-2;
+  }
+
+  .doc-block {
+    @apply rounded-xl border border-slate-200 bg-white p-4;
+  }
+
+  .doc-block-compact {
+    @apply flex flex-col justify-center;
+  }
+
+  .doc-block-title {
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500;
+  }
+
+  .doc-row {
+    @apply text-sm leading-relaxed text-slate-700;
+  }
+
+  .doc-label {
+    @apply text-[11px] font-semibold uppercase tracking-[0.1em] text-slate-500;
+  }
+
+  .doc-table-wrap {
+    @apply mb-4 overflow-hidden rounded-xl border border-slate-200;
+  }
+
+  .doc-table {
+    @apply min-w-full text-left text-sm;
+  }
+
+  .doc-table thead {
+    @apply bg-blue-50 text-[11px] uppercase tracking-[0.12em] text-blue-700;
+  }
+
+  .doc-table th,
+  .doc-table td {
+    @apply px-4 py-2.5;
+  }
+
+  .doc-table tbody tr {
+    @apply border-t border-slate-200;
+  }
+
+  .doc-total-line {
+    @apply mt-1 flex items-center justify-between;
+  }
+
+  .doc-total-line-strong {
+    @apply text-blue-700;
+  }
+
+  .doc-signatures {
+    @apply mt-5;
+  }
+
+  .signature-row {
+    @apply flex gap-5;
+  }
+
+  .signature-box {
+    @apply flex-1 rounded-[14px] border border-dashed border-slate-300 p-[14px];
+    height: 120px;
+  }
+
+  .signature-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .signature-label {
+    @apply text-xs tracking-[0.1em] text-slate-500;
+    margin-bottom: 6px;
+  }
+
+  .signature-image {
+    width: 110px;
+    height: auto;
+    object-fit: contain;
+    margin: 6px 0;
+    display: block;
+  }
+
+  .signature-name {
+    @apply text-sm font-semibold text-slate-900;
+  }
+
+  .client-sign {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  .sign-space {
+    flex: 1;
+  }
+
+  .client-name {
+    text-align: center;
+  }
+
+  .doc-avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  @media (max-width: 640px) {
+    .doc-logo {
+      width: 60px;
+      height: 60px;
+    }
+
+    .doc-company-text h1 {
+      font-size: 34px;
+    }
+
+    .doc-company-text p {
+      font-size: 16px;
+    }
+
+    .doc-meta-box {
+      min-width: 100%;
+    }
+
+    .signature-row {
+      @apply flex-col gap-3;
+    }
+  }
+}
+
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+  }
+
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .doc-preview-shell {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .doc-canvas {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .document-sheet {
+    max-width: 100% !important;
+    min-height: auto !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .doc-logo {
+    max-width: 64px !important;
+    width: 64px !important;
+    height: auto !important;
+  }
+
+  .signature-image {
+    width: 110px !important;
+    max-width: 110px !important;
+    height: auto !important;
+  }
+
+}
