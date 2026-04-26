@@ -8,7 +8,7 @@ const AuthContext = createContext(null);
 
 // Optional admin role check:
 // If true, user must exist in `admins/{uid}` with { role: 'admin' }.
-const ENABLE_ADMIN_ROLE_CHECK = false;
+const ENABLE_ADMIN_ROLE_CHECK = true;
 
 const hasAdminRole = async (uid) => {
   if (!uid) return false;
