@@ -43,22 +43,11 @@ const LoginPage = () => {
     } catch (authError) {
       const code = authError?.code || '';
       const message = authError?.message || '';
-      if (code === 'auth/invalid-credential' || code === 'auth/wrong-password' || code === 'auth/user-not-found') {
-        setError('Invalid email or password.');
-      } else if (code === 'auth/network-request-failed') {
-        setError('Network error. Check your mobile internet/Wi-Fi and try again.');
-      } else if (code === 'auth/unauthorized-domain') {
-        setError('This domain is not authorized in Firebase. Add it in Authentication > Settings > Authorized domains.');
-      } else if (code === 'auth/operation-not-allowed') {
-        setError('Email/Password sign-in is disabled in Firebase. Enable it in Authentication > Sign-in method.');
-      } else if (code === 'auth/invalid-email') {
-        setError('Invalid email format.');
-      } else if (code === 'auth/too-many-requests') {
-        setError('Too many attempts. Try again later.');
-      } else if (message.includes('Access denied')) {
+      if (message.includes('Access denied')) {
         setError(message);
       } else {
-        setError(`Login failed. ${code || message || 'Please try again.'}`);
+        const exactError = code || message || 'unknown-error';
+        setError(`Login failed: ${exactError}`);
       }
     } finally {
       setLoading(false);
