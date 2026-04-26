@@ -28,7 +28,9 @@ const LoginPage = () => {
     event.preventDefault();
     setError('');
 
-    if (!email.trim() || !password.trim()) {
+    const normalizedEmail = email.trim().toLowerCase();
+
+    if (!normalizedEmail || !password.trim()) {
       setError('Please enter email and password.');
       return;
     }
@@ -36,7 +38,7 @@ const LoginPage = () => {
     setLoading(true);
 
     try {
-      await login(email, password);
+      await login(normalizedEmail, password);
       navigate(location.state?.from || '/admin', { replace: true });
     } catch (authError) {
       const code = authError?.code || '';
@@ -74,6 +76,9 @@ const LoginPage = () => {
               name="admin_email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
+              autoCapitalize="none"
+              autoCorrect="off"
+              spellCheck={false}
               autoComplete="off"
               className="mt-1.5 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm"
               placeholder="admin@arlotechx.com"
@@ -88,6 +93,9 @@ const LoginPage = () => {
               name="admin_password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
+              autoCapitalize="none"
+              autoCorrect="off"
+              spellCheck={false}
               autoComplete="new-password"
               className="mt-1.5 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm"
               placeholder="Enter password"
