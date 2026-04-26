@@ -36,7 +36,7 @@ const AdminSidebar = ({ onLogout, mobileOpen, onCloseMobile, collapsed, onToggle
       {mobileOpen ? <button type="button" className="fixed inset-0 z-40 bg-slate-900/25 lg:hidden" onClick={onCloseMobile} /> : null}
 
       <aside
-        className={`fixed left-0 top-0 z-50 h-[100dvh] border-r border-blue-100 bg-white/92 backdrop-blur-xl transition-all duration-300 lg:sticky lg:z-20 lg:h-screen ${
+        className={`fixed left-0 top-0 z-50 h-[100dvh] border-r border-blue-100 bg-white/92 backdrop-blur-xl transition-all duration-300 lg:z-20 lg:h-screen ${
           mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         } ${collapsed ? 'w-20' : 'w-72'}`}
       >

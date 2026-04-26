@@ -48,7 +48,7 @@ const AdminLayout = () => {
         isDocumentPreviewRoute
           ? 'bg-slate-100'
           : 'bg-[radial-gradient(900px_500px_at_8%_-10%,rgba(56,189,248,0.16),transparent_62%),radial-gradient(820px_460px_at_95%_8%,rgba(59,130,246,0.18),transparent_58%),linear-gradient(180deg,#f8fbff_0%,#f4f8ff_55%,#f8fbff_100%)]'
-      } ${isDocumentPreviewRoute ? '' : 'relative lg:grid lg:grid-cols-[auto_1fr]'}`}
+      } ${isDocumentPreviewRoute ? '' : 'relative'}`}
     >
       {!isDocumentPreviewRoute ? (
         <AdminSidebar
@@ -59,7 +59,7 @@ const AdminLayout = () => {
           onToggleCollapsed={() => setCollapsed((value) => !value)}
         />
       ) : null}
-      <div className="min-h-screen min-w-0 lg:ml-0">
+      <div className={`min-h-screen min-w-0 ${isDocumentPreviewRoute ? '' : collapsed ? 'lg:ml-20' : 'lg:ml-72'}`}>
         {!isDocumentPreviewRoute ? <AdminHeader onOpenMobile={() => setMobileMenuOpen(true)} /> : null}
         <main className={`min-w-0 ${isDocumentPreviewRoute ? 'px-3 py-5 sm:px-5' : 'px-3 py-6 sm:px-4 md:px-6'}`}>
           <Outlet />
