@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arlotechx.com/sitemap.xml
