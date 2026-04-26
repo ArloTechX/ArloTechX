@@ -1,5 +1,6 @@
-const CACHE_NAME = 'arlotechx-cache-v2';
-const PRECACHE_URLS = ['/', '/manifest.json', '/assets/icon-192.png', '/assets/icon-512.png'];
+const CACHE_NAME = 'arlotechx-cache-v3';
+const SCOPE_PATH = new URL(self.registration.scope).pathname;
+const PRECACHE_URLS = [SCOPE_PATH, `${SCOPE_PATH}manifest.json`, `${SCOPE_PATH}assets/icon-192.png`, `${SCOPE_PATH}assets/icon-512.png`];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -37,7 +38,7 @@ self.addEventListener('fetch', (event) => {
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
           return networkResponse;
         })
-        .catch(async () => (await caches.match('/')) || Response.error()),
+        .catch(async () => (await caches.match(SCOPE_PATH)) || Response.error()),
     );
     return;
   }
@@ -55,7 +56,7 @@ self.addEventListener('fetch', (event) => {
             networkResponse.status === 200 &&
             networkResponse.type === 'basic' &&
             requestUrl.protocol.startsWith('http') &&
-            !requestUrl.pathname.startsWith('/api/');
+            !requestUrl.pathname.startsWith(`${SCOPE_PATH}api/`);
 
           if (isValidResponse) {
             const responseClone = networkResponse.clone();
@@ -64,7 +65,7 @@ self.addEventListener('fetch', (event) => {
 
           return networkResponse;
         })
-        .catch(async () => (await caches.match(event.request)) || (await caches.match('/')) || Response.error());
+        .catch(async () => (await caches.match(event.request)) || (await caches.match(SCOPE_PATH)) || Response.error());
     }),
   );
 });

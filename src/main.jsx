@@ -8,7 +8,7 @@ import './index.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <AuthProvider>
         <ProjectsProvider>
           <App />
@@ -22,7 +22,7 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
       if (import.meta.env.PROD) {
-        await navigator.serviceWorker.register('/sw.js');
+        await navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`);
         return;
       }
 
