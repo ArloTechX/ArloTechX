@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arlotechx.com/sitemap.xml
+Sitemap: https://arlotechx.github.io/ArloTechX/sitemap.xml
